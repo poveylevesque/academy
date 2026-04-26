@@ -7,7 +7,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     * {
@@ -17,7 +17,7 @@
     body {
       margin: 0;
       font-family: "Inter", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-      background: #f4f4f4;
+      background: #f6f6f6;
       color: #111;
       display: flex;
       justify-content: center;
@@ -26,76 +26,100 @@
       padding: 40px;
     }
 
-    /* WHITE CARD */
     .container {
-      background: #fff;
-      padding: 60px 50px;
-      max-width: 560px;
+      max-width: 520px;
       width: 100%;
       text-align: center;
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      padding: 60px 40px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.08);
     }
 
-    img {
-      max-width: 110px;
+    /* LOGO */
+    .logo {
+      max-width: 260px;
+      width: 100%;
       margin-bottom: 30px;
     }
 
-    h1 {
-      font-size: 26px;
-      font-weight: 500;
-      letter-spacing: -0.02em;
-      margin-bottom: 18px;
+    .divider {
+      width: 50px;
+      height: 1px;
+      background: #111;
+      margin: 20px auto 25px;
+      opacity: 0.2;
     }
 
     p {
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.7;
       color: #444;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
     }
 
     .small {
-      font-size: 14px;
-      color: #666;
+      font-size: 13px;
+      color: #777;
+    }
+
+    /* BUTTON */
+    a.button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 18px;
+      border: 1px solid #111;
+      background: transparent;
+      color: #111;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.25s ease;
+    }
+
+    a.button:hover {
+      background: #111;
+      color: #fff;
     }
 
     /* INSTAGRAM */
     .instagram {
       color: #111;
       text-decoration: none;
-      border-bottom: 1px solid rgba(0,0,0,0.25);
-      transition: all 0.2s ease;
+      border-bottom: 1px solid rgba(0,0,0,0.3);
+      transition: 0.2s ease;
     }
 
     .instagram:hover {
-      color: #e1306c;
-      border-bottom-color: #e1306c;
+      border-bottom: 1px solid #111;
     }
 
-    /* BUTTON */
-    a.button {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 12px 24px;
-      background: #111;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 999px;
-      font-size: 14px;
-      transition: all 0.25s ease;
+    /* ARTISTS IMAGE */
+    .artists {
+      width: 100%;
+      margin-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 30px;
     }
 
-    a.button:hover {
-      background: #333;
-      transform: translateY(-1px);
+    .artists img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
-    /* subtle spacing rhythm */
-    .spacer {
-      height: 8px;
+    /* FADE SYSTEM */
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
     }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
   </style>
 </head>
 
@@ -103,27 +127,46 @@
 
   <div class="container">
 
-    <img src="header.png" alt="Logo">
+    <img class="logo fade" src="logo2.png" alt="PLPA Logo">
 
-    <h1>Povey Levesque Painting Academy</h1>
+    <div class="divider fade"></div>
 
-    <p>
+    <p class="fade">
       7-day mentoring program with Edward Povey & Suzanne Levesque in the coastal village of Instow, Devon.
     </p>
-    
 
-    <a class="button" href="mailto:academy@plpa.space">
-      Apply for Sept ’26
+    <a class="button fade" href="mailto:academy@plpa.space">
+      Apply now for September 2026
     </a>
-<br>
-<p class="small">
+
+    <p class="small fade" style="margin-top: 28px;">
       Follow us on
       <a class="instagram" href="https://www.instagram.com/poveylevesque_academy/" target="_blank">
         Instagram
       </a>
     </p>
-    
+
+    <div class="artists fade">
+      <img src="poveylevesque.png" alt="Povey & Levesque">
+    </div>
+
   </div>
+
+  <script>
+    const elements = document.querySelectorAll('.fade');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 120);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
