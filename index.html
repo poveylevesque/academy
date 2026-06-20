@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -63,7 +64,6 @@
       color: #777;
     }
 
-    /* BUTTON */
     a.button {
       display: inline-block;
       margin-top: 30px;
@@ -75,18 +75,17 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border: 1px solid #111;
-      border-radius: 0px;
+      border-radius: 0;
       transition: all 0.25s ease;
       box-shadow: 0 10px 25px rgba(0,0,0,0.12);
     }
 
-    /* Hover nur auf Geräten mit Maus */
     @media (hover: hover) {
       a.button:hover {
         background: #F2B7A4;
         color: #111;
         transform: translateY(-2px);
-        border: 1px solid #F2B7A4;
+        border-color: #F2B7A4;
         box-shadow: 0 14px 30px rgba(0,0,0,0.18);
       }
     }
@@ -99,7 +98,7 @@
     }
 
     .instagram:hover {
-      border-bottom: 1px solid #111;
+      border-bottom-color: #111;
     }
 
     .artists {
@@ -116,10 +115,15 @@
       border-radius: 12px;
     }
 
+    /* Fade Animation */
+
     .fade {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(20px);
+      transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+      will-change: opacity, transform;
     }
 
     .fade.visible {
@@ -127,7 +131,8 @@
       transform: translateY(0);
     }
 
-    /* MOBILE OPTIMIERUNG */
+    /* Mobile */
+
     @media (max-width: 600px) {
       .container {
         padding: 48px 22px;
@@ -156,7 +161,15 @@
     <div class="divider fade"></div>
 
     <p class="fade">
-      7-day mentoring program with Edward Povey & Suzanne Levesque in the coastal village of Instow, Devon. </p> <p>Fall session fully booked. Next academy will be in the spring of 2027. Send a link to at least five images of your work as well as a short descriptions of yourself.</p>
+      7-day mentoring program with Edward Povey & Suzanne Levesque in the coastal village of Instow, Devon.
+    </p>
+
+    <p class="fade">
+      Fall session fully booked. Next academy will be in the spring of 2027.
+    </p>
+
+    <p class="fade">
+      Send a link to at least five images of your work as well as a short description of yourself.
     </p>
 
     <a class="button fade" href="mailto:academy@plpa.space">
@@ -165,7 +178,9 @@
 
     <p class="small fade" style="margin-top: 28px;">
       Follow us on
-      <a class="instagram" href="https://www.instagram.com/poveylevesque_academy/" target="_blank">
+      <a class="instagram"
+         href="https://www.instagram.com/poveylevesque_academy/"
+         target="_blank">
         Instagram
       </a>
     </p>
@@ -177,20 +192,17 @@
   </div>
 
   <script>
-    const elements = document.querySelectorAll('.fade');
+    window.addEventListener('load', () => {
+      const elements = document.querySelectorAll('.fade');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, index * 120);
-        }
+      elements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, index * 180);
       });
-    }, { threshold: 0.2 });
-
-    elements.forEach(el => observer.observe(el));
+    });
   </script>
 
 </body>
 </html>
+```
