@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -115,14 +114,10 @@
       border-radius: 12px;
     }
 
-    /* Fade Animation */
-
     .fade {
       opacity: 0;
       transform: translateY(20px);
-      transition:
-        opacity 0.9s ease,
-        transform 0.9s ease;
+      transition: opacity 0.9s ease, transform 0.9s ease;
       will-change: opacity, transform;
     }
 
@@ -131,9 +126,11 @@
       transform: translateY(0);
     }
 
-    /* Mobile */
-
     @media (max-width: 600px) {
+      body {
+        padding: 20px;
+      }
+
       .container {
         padding: 48px 22px;
       }
@@ -148,7 +145,6 @@
         transform: none;
       }
     }
-
   </style>
 </head>
 
@@ -161,7 +157,7 @@
     <div class="divider fade"></div>
 
     <p class="fade">
-      7-day mentoring program with Edward Povey & Suzanne Levesque in the coastal village of Instow, Devon.
+      7-day mentoring program with Edward Povey &amp; Suzanne Levesque in the coastal village of Instow, Devon.
     </p>
 
     <p class="fade">
@@ -176,17 +172,18 @@
       Apply now for Spring 2027
     </a>
 
-    <p class="small fade" style="margin-top: 28px;">
+    <p class="small fade" style="margin-top:28px;">
       Follow us on
       <a class="instagram"
          href="https://www.instagram.com/poveylevesque_academy/"
-         target="_blank">
+         target="_blank"
+         rel="noopener noreferrer">
         Instagram
       </a>
     </p>
 
     <div class="artists fade">
-      <img src="poveylevesque.png" alt="Povey & Levesque">
+      <img src="poveylevesque.png" alt="Povey &amp; Levesque">
     </div>
 
   </div>
@@ -205,4 +202,3 @@
 
 </body>
 </html>
-```
