@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>PLPA</title>
+  <title>PLPA | Povey Levesque Painting Academy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A seven-day painting and mentoring academy with Edward Povey and Suzanne Levesque in Instow, Devon.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +16,10 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: "Inter", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
@@ -21,18 +27,18 @@
       color: #111;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
-      padding: 40px;
+      padding: 40px 20px;
     }
 
     .container {
-      max-width: 520px;
+      max-width: 620px;
       width: 100%;
       text-align: center;
       padding: 64px 42px;
-      background: rgba(255,255,255,0.85);
-      border: 1px solid rgba(0,0,0,0.06);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: 18px;
       backdrop-filter: blur(10px);
     }
@@ -76,7 +82,7 @@
       border: 1px solid #111;
       border-radius: 0;
       transition: all 0.25s ease;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
     }
 
     @media (hover: hover) {
@@ -85,14 +91,14 @@
         color: #111;
         transform: translateY(-2px);
         border-color: #F2B7A4;
-        box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
       }
     }
 
     .instagram {
       color: #111;
       text-decoration: none;
-      border-bottom: 1px solid rgba(0,0,0,0.25);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.25);
       transition: 0.2s ease;
     }
 
@@ -103,7 +109,7 @@
     .artists {
       width: 100%;
       margin-top: 42px;
-      border-top: 1px solid rgba(0,0,0,0.06);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
       padding-top: 30px;
     }
 
@@ -112,6 +118,138 @@
       height: auto;
       display: block;
       border-radius: 12px;
+    }
+
+    /* FAQ SECTION */
+    .faq {
+      margin-top: 44px;
+      padding-top: 34px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      text-align: left;
+    }
+
+    .section-title {
+      margin: 0 0 12px;
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    .section-intro {
+      margin-bottom: 28px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+    }
+
+    .faq-item:first-of-type {
+      border-top: 1px solid rgba(0, 0, 0, 0.10);
+    }
+
+    .faq-item summary {
+      position: relative;
+      list-style: none;
+      cursor: pointer;
+      padding: 19px 30px 19px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+      color: #222;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 2px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 21px;
+      font-weight: 300;
+      color: #777;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] summary::after {
+      content: "−";
+    }
+
+    .faq-item summary:hover {
+      color: #888;
+    }
+
+    .faq-answer {
+      padding: 0 0 18px;
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .faq-answer a {
+      color: #111;
+      text-underline-offset: 3px;
+    }
+
+    /* THREE-PHOTO GALLERY */
+    .gallery {
+      margin-top: 44px;
+      padding-top: 34px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .gallery-grid figure {
+      margin: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #f0f0f0;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: auto;
+      min-height: 180px;
+      max-height: 420px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    @media (hover: hover) {
+      .gallery-grid figure:hover img {
+        transform: scale(1.025);
+      }
+    }
+
+    .gallery-caption {
+      margin: 10px 0 0;
+      font-size: 11px;
+      line-height: 1.6;
+      color: #888;
+    }
+
+    .footer {
+      margin-top: 38px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+      font-size: 11px;
+      line-height: 1.8;
+      color: #999;
     }
 
     .fade {
@@ -128,11 +266,11 @@
 
     @media (max-width: 600px) {
       body {
-        padding: 20px;
+        padding: 20px 12px;
       }
 
       .container {
-        padding: 48px 22px;
+        padding: 42px 22px;
       }
 
       a.button {
@@ -144,13 +282,41 @@
       a.button:hover {
         transform: none;
       }
+
+      .section-title {
+        font-size: 19px;
+      }
+
+      .faq-item summary {
+        font-size: 13px;
+        padding-top: 17px;
+        padding-bottom: 17px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
+      .fade {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <div class="container">
+  <main class="container">
 
     <img class="logo fade" src="logo2.png" alt="PLPA Logo">
 
@@ -182,23 +348,170 @@
       </a>
     </p>
 
+    <!-- EXISTING PHOTO -->
     <div class="artists fade">
-      <img src="poveylevesque.png" alt="Povey &amp; Levesque">
+      <img src="poveylevesque.png" alt="Edward Povey and Suzanne Levesque">
     </div>
 
-  </div>
+    <!-- FAQ SECTION -->
+    <section class="faq fade" aria-labelledby="faq-title">
+      <h2 class="section-title" id="faq-title">
+        Frequently Asked Questions
+      </h2>
+
+      <p class="section-intro">
+        Everything you need to know about the academy.
+      </p>
+
+      <details class="faq-item">
+        <summary>Who can participate in the academy?</summary>
+        <p class="faq-answer">
+          Students of all skill levels are welcome to apply, although previous experience with oil painting is beneficial. International applicants are strongly encouraged to apply. Participants must be at least 18 years old.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How many participants will be in each run of the academy?</summary>
+        <p class="faq-answer">
+          Each academy session is limited to a maximum of 26 participants.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What language will the classes be conducted in?</summary>
+        <p class="faq-answer">
+          All classes are conducted in English.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do I register for the academy?</summary>
+        <p class="faq-answer">
+          To apply, please email
+          <a href="mailto:academy@plpa.space">academy@plpa.space</a>
+          with a short, informal introduction about yourself and your artistic practice, along with five images of your work.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What is included in the registration fee?</summary>
+        <p class="faq-answer">
+          The registration fee includes an intensive seven-day program, one-on-one mentoring sessions, evening drawing sessions with live models, wine and cheese gatherings, and a final dinner at Edward Povey’s home and studio.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>What materials and tools should I bring?</summary>
+        <p class="faq-answer">
+          You will receive a list of required materials and supplies before the academy begins.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Will I receive one-on-one mentoring from the instructor?</summary>
+        <p class="faq-answer">
+          Yes. Every participant receives individual mentoring sessions with Edward Povey and Suzanne Levesque.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Will the academy help me develop my artistic style?</summary>
+        <p class="faq-answer">
+          The academy offers an intensive environment for artistic exploration, practical study, and individual mentoring. Participants have the opportunity to reflect on and develop their artistic practice throughout the program.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Will there be a follow-up community, online group, or future workshops?</summary>
+        <p class="faq-answer">
+          Please contact the academy team for the latest information about any follow-up community, online groups, or future workshops.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is accommodation or travel included in the academy fee?</summary>
+        <p class="faq-answer">
+          No. Accommodation and travel expenses are not included in the academy fee. Participants are responsible for arranging and covering their own travel and accommodation.
+        </p>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can you recommend nearby hotels or accommodation?</summary>
+        <p class="faq-answer">
+          Please contact the academy team for recommendations on nearby hotels and accommodation options.
+        </p>
+      </details>
+    </section>
+
+    <!-- THREE-PHOTO GALLERY -->
+    <section class="gallery fade" aria-labelledby="gallery-title">
+      <h2 class="section-title" id="gallery-title">
+        Life at the Academy
+      </h2>
+
+      <p class="section-intro">
+        A glimpse into the academy experience.
+      </p>
+
+      <div class="gallery-grid">
+        <figure>
+          <img
+            src="academy1.jpg"
+            alt="Painting and artistic practice at the academy"
+            loading="lazy">
+        </figure>
+
+        <figure>
+          <img
+            src="academy2.jpg"
+            alt="The academy environment in Devon"
+            loading="lazy">
+        </figure>
+
+        <figure>
+          <img
+            src="academy3.jpg"
+            alt="Artists working and learning together"
+            loading="lazy">
+        </figure>
+      </div>
+    </section>
+
+    <footer class="footer fade">
+      <p class="small">
+        Povey Levesque Painting Academy · Instow, Devon
+      </p>
+      <a class="instagram"
+         href="https://www.instagram.com/poveylevesque_academy/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Follow us on Instagram
+      </a>
+    </footer>
+
+  </main>
 
   <script>
-    window.addEventListener('load', () => {
-      const elements = document.querySelectorAll('.fade');
+    window.addEventListener("load", () => {
+      const elements = document.querySelectorAll(".fade");
 
-      elements.forEach((el, index) => {
-        setTimeout(() => {
-          el.classList.add('visible');
-        }, index * 180);
-      });
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.08
+        });
+
+        elements.forEach((el) => observer.observe(el));
+      } else {
+        elements.forEach((el) => el.classList.add("visible"));
+      }
     });
   </script>
-
 </body>
 </html>
